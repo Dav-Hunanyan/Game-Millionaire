@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Millionaire
 {
@@ -10,7 +7,7 @@ namespace Millionaire
     {
         private static Question fiftyFifty;
 
-        public static Question Fiftyfifty(Question question)
+        public static void Helper(Question question)
         {
             if (fiftyFifty == null)
             {
@@ -29,12 +26,11 @@ namespace Millionaire
                 }
             }
             else
-
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You have already used 50-50");
             }
-            return question;
+
         }
     }
 }

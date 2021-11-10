@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Millionaire
 {
@@ -10,11 +7,13 @@ namespace Millionaire
     {
         private static Question Hallhelp;
 
-        public static void hallhelp(Question question)
+        public static void Helper(Question question)
         {
             if (Hallhelp == null)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Hallhelp = question;
+
                 Random random = new Random();
                 int a = random.Next(40, 60);
                 int b = random.Next(10, 20);
@@ -22,7 +21,17 @@ namespace Millionaire
                 int d = 100 - a - b - c;
                 for (int i = 0; i < question.answers.Length; i++)
                 {
-                    if (question.answers[i].Accuracy)
+                    if (question.answers[0].AnswerOfQuestion == "" && question.answers[2].AnswerOfQuestion == "")
+                    {
+                        Console.WriteLine("2." + a + "%  4." + (100 - a) + "%");
+                        break;
+                    }
+                    else if (question.answers[1].AnswerOfQuestion == "" && question.answers[3].AnswerOfQuestion == "")
+                    {
+                        Console.WriteLine("1." + a + "%  3." + (100 - a) + "%");
+                        break;
+                    }
+                    else if (question.answers[i].Accuracy)
                     {
 
                         switch (i)
@@ -51,6 +60,7 @@ namespace Millionaire
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You have already used Hall help");
             }
+            Console.ForegroundColor = ConsoleColor.White;
 
         }
     }

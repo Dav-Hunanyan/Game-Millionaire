@@ -46,6 +46,7 @@
     <Compile Include="Answer.cs" />
     <Compile Include="CallFriend.cs" />
     <Compile Include="FiftyFifty.cs" />
+    <Compile Include="GameRules.cs" />
     <Compile Include="HallHelp.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Program.cs" />

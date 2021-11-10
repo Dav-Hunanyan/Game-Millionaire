@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace Millionaire
@@ -11,25 +7,18 @@ namespace Millionaire
     {
         static void Main(string[] args)
         {
-           
+            GameRules.Gamerules();
+
             Question[] questions = new Question[10];
             Question.Questions(questions);
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("              Who wants to be a millionaire");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("       Answer questions right and you will win million");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("If you don't know right answer you can use the help provided to you");
-            Console.WriteLine("\n");
+
             int inviolable_money = 0;
             int Money = 0;
             int i = 1;
-            
-           
-           
+
+
             while (questions.Length != 0)
             {
-               
                 int command = 0;
                 Money = Money_.MoneyWin(i);
 
@@ -48,6 +37,7 @@ namespace Millionaire
                 question.Print();
                 Command: Console.Write("\n1.Answer  2.Help  3.Get inviolable money :  ");
                 command = int.Parse(Console.ReadLine());
+
                 switch (command)
                 {
                     case 1:
@@ -75,6 +65,7 @@ namespace Millionaire
                                     {
                                         Console.WriteLine("Congratulations.You are Millionaire");
                                         Thread.Sleep(2000);
+
                                         return;
                                     }
                                     Thread.Sleep(2000);
@@ -97,7 +88,7 @@ namespace Millionaire
                                     else
                                     {
                                         Console.WriteLine("You will win another time don't worry");
-                                        Console.WriteLine("Thank you");                                       
+                                        Console.WriteLine("Thank you");
                                     }
                                     Thread.Sleep(2000);
                                     return;
@@ -114,26 +105,24 @@ namespace Millionaire
                         switch (help)
                         {
                             case 1:
-                                question = FiftyFifty.Fiftyfifty(question);
+                                FiftyFifty.Helper(question);
                                 goto QuestionPrint;
                             case 2:
-                                CallFriend.Callfriend(question);
+                                CallFriend.Helper(question);
                                 goto Command;
                             case 3:
-                                HallHelp.hallhelp(question);
+                                HallHelp.Helper(question);
                                 goto Command;
                             default:
                                 goto Command;
                         }
-                        break;
                     case 3:
                         Console.WriteLine("You win " + inviolable_money + "$");
                         Thread.Sleep(3000);
                         return;
-
                     default:
                         Console.WriteLine("Wrong command.Try again");
-                        goto Command;                       
+                        goto Command;
                 }
                 i++;
                 Console.Clear();

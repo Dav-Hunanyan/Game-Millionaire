@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Millionaire
 {
-    class Question
+    public class Question
     {
-        public string m_Question { get; private set; }
+
+        public string m_Question { get; set; }
+
         public Answer[] answers = new Answer[4];
 
         public Question(string question, Answer[] answers)
